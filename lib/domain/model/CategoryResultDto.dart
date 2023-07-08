@@ -1,8 +1,9 @@
-import 'package:ecommerce/domain/model/CategoryDto.dart';
-import 'package:ecommerce/domain/model/paginationDto.dart';
 
-class CategoryResultDto{
-  PaginationDto? paginationDto;
-  List<CategoryDto>? categoriesList;
-  CategoryResultDto({this.categoriesList, this.paginationDto});
+import 'package:ecommerce/domain/model/Category.dart';
+import 'package:ecommerce/domain/model/Pagination.dart';
+
+class CategoryResult{
+  Pagination? paginationDto;
+  List<Category>? categoriesList;
+  CategoryResult({this.categoriesList, this.paginationDto});
 }

@@ -1,4 +1,4 @@
-import 'package:ecommerce/domain/model/paginationDto.dart';
+import 'package:ecommerce/domain/model/Pagination.dart';
 
 /// currentPage : 1
 /// numberOfPages : 1
@@ -26,8 +26,8 @@ class PaginationEntity {
     map['limit'] = limit;
     return map;
   }
-  PaginationDto toPaginationDto(){
-    return PaginationDto(
+  Pagination toPaginationDto(){
+    return Pagination(
       currentPage: currentPage,
       limit: limit,
       numberOfPages: numberOfPages

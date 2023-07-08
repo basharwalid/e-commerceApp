@@ -1,5 +1,5 @@
-class CategoryDto {
-  CategoryDto({
+class Category {
+  Category({
     this.id,
     this.name,
     this.slug,

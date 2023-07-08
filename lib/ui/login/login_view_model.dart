@@ -1,28 +1,18 @@
 import 'dart:math';
-
-import 'package:ecommerce/api/api_manager/ApiManager.dart';
-import 'package:ecommerce/api/response/Loginresponse/LoginResponse.dart';
+import 'package:ecommerce/data/api/api_manager/ApiManager.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/dataSource/auth_online_dataSource.dart';
 import '../../data/repository/auth_repository.dart';
 import '../../domain/customException/NewtorkException.dart';
 import '../../domain/customException/ServerErrorException.dart';
 import '../../domain/dataSource/auth_online_datasource.dart';
-import '../../domain/model/AuthResultDto.dart';
+import '../../domain/model/AuthResult.dart';
 import '../../domain/repository/auth_repository.dart';
 import '../../domain/usecase/login_usecase.dart';
 
 class LoginViewModel extends Cubit<LoginViewState>{
-  late ApiManager apiManager = ApiManager();
-  late AuthRepository authRepository = authRepositoryimpl(onlineDataSource);
-  late AuthOnlineDataSource onlineDataSource = AuthOnlineDataSourceImpl(apiManager);
-  late LoginUseCase loginUseCase;
-  LoginViewModel():super(InitialState()){
-    apiManager = apiManager;
-    authRepository = authRepositoryimpl(onlineDataSource);
-    onlineDataSource = AuthOnlineDataSourceImpl(apiManager);
-    loginUseCase = LoginUseCase(authRepository);
-  }
+  LoginUseCase loginUseCase;
+  LoginViewModel(this.loginUseCase):super(InitialState());
 
   void login(String email , String password)async{
     try{
@@ -45,7 +35,7 @@ class LoadingState extends LoginViewState{
   LoadingState({this.LoadingMessage});
 }
 class SuccessState extends LoginViewState{
-  AuthResultDto response;
+  AuthResult response;
   SuccessState(this.response);
 }
 class FailState extends LoginViewState{

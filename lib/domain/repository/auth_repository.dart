@@ -1,6 +1,6 @@
-import 'package:ecommerce/domain/model/AuthResultDto.dart';
+import 'package:ecommerce/domain/model/AuthResult.dart';
 
 abstract class AuthRepository{
-  Future<AuthResultDto> Login(String email , String password);
-  Future<AuthResultDto> Register(String name , String email , String password , String repassword , String phone);
+  Future<AuthResult> Login(String email , String password);
+  Future<AuthResult> Register(String name , String email , String password , String repassword , String phone);
 }

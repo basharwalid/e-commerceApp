@@ -5,7 +5,7 @@ class GetCategoriesUseCase{
   CategoriesRepository repository;
   GetCategoriesUseCase(this.repository);
 
-  Future<CategoryResultDto> Invoke({String? keyword , int limit =20, int page =1}){
+  Future<CategoryResult> Invoke({String? keyword , int limit =20, int page =1}){
     return repository.getCategories();
   }
 }

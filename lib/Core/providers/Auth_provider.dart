@@ -1,6 +1,6 @@
+import 'package:ecommerce/domain/model/User.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../domain/model/UserDto.dart';
 
 class UserProvider extends Cubit<CurrentUserState>{
   UserProvider():super(LoggedOutState());
@@ -18,7 +18,7 @@ class UserProvider extends Cubit<CurrentUserState>{
 abstract class CurrentUserState{}
 class LoggedInState extends CurrentUserState{
   String token;
-  UserDto user;
+  User user;
   LoggedInState(this.user , this.token);
 }
 class LoggedOutState extends CurrentUserState {}

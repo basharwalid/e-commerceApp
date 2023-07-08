@@ -1,6 +1,6 @@
 
-class UserDto {
-  UserDto({
+class User {
+  User({
     this.name,
     this.email,
     this.phone,

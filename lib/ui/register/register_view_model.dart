@@ -1,10 +1,10 @@
-import 'package:ecommerce/api/api_manager/ApiManager.dart';
-import 'package:ecommerce/api/response/register/RegisterResponse.dart';
+import 'package:ecommerce/data/api/api_manager/ApiManager.dart';
 import 'package:ecommerce/data/dataSource/auth_online_dataSource.dart';
 import 'package:ecommerce/domain/customException/NewtorkException.dart';
 import 'package:ecommerce/domain/customException/ServerErrorException.dart';
 import 'package:ecommerce/domain/dataSource/auth_online_datasource.dart';
-import 'package:ecommerce/domain/model/AuthResultDto.dart';
+import 'package:ecommerce/domain/model/AuthResult.dart';
+import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import '../../data/repository/auth_repository.dart';
 import '../../domain/repository/auth_repository.dart';
@@ -12,16 +12,14 @@ import '../../domain/usecase/register_usecase.dart';
 
 
 class RegisterViewModel extends Cubit<RegisterViewState>{
-  late ApiManager apiManager = ApiManager();
-  late AuthRepository authRepository = authRepositoryimpl(onlineDataSource);
-  late AuthOnlineDataSource onlineDataSource = AuthOnlineDataSourceImpl(apiManager);
-  late RegisterUseCase registerUseCase;
-  RegisterViewModel():super(InitialState()){
-   apiManager = apiManager;
-   authRepository = authRepositoryimpl(onlineDataSource);
-   onlineDataSource = AuthOnlineDataSourceImpl(apiManager);
-   registerUseCase = RegisterUseCase(authRepository);
-  }
+  var formkey = GlobalKey<FormState>();
+  var namecontroller = TextEditingController(text: "bashar walid");
+  var Emailcontroller = TextEditingController(text: "basharwalid2002@gmail.com");
+  var mobilecontroller = TextEditingController(text: "01016309078");
+  var Passwordcontroller = TextEditingController(text: "123456");
+  var PasswordConfirmcontroller = TextEditingController(text: "123456");
+  RegisterUseCase registerUseCase;
+  RegisterViewModel(this.registerUseCase):super(InitialState());
 
   void Register(String name , String email , String password , String repassword , String phone)async {
     try {
@@ -43,7 +41,7 @@ class LoadingState extends RegisterViewState{
   LoadingState({this.LoadingMessage});
 }
 class SuccessState extends RegisterViewState{
-  AuthResultDto response;
+  AuthResult response;
   SuccessState(this.response);
 }
 class FailState extends RegisterViewState{

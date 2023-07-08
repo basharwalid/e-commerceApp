@@ -10,7 +10,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int Selectedindex = 0;
+  int selectedindex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -47,38 +47,39 @@ class _HomeScreenState extends State<HomeScreen> {
           )
         ),
         child: BottomNavigationBar(
-          currentIndex: Selectedindex,
+          currentIndex: selectedindex,
+          type:BottomNavigationBarType.fixed,
           onTap: (index) {
             setState(() {
-              Selectedindex = index;
+              selectedindex = index;
             });
           },
           items: [
             BottomNavigationBarItem(
                 icon: BottomNavIcon(
                   IconName: "ic_home",
-                  isSelected: true,
+                  isSelected: selectedindex == 0,
                 ),
                 backgroundColor: Colors.transparent,
                 label: ""),
             BottomNavigationBarItem(
                 icon: BottomNavIcon(
                   IconName: "ic_category",
-                  isSelected: false,
+                  isSelected: selectedindex == 1,
                 ),
                 backgroundColor: Colors.transparent,
                 label: ""),
             BottomNavigationBarItem(
                 icon: BottomNavIcon(
                   IconName: "ic_favorite",
-                  isSelected: false,
+                  isSelected: selectedindex == 2,
                 ),
                 backgroundColor: Colors.transparent,
                 label: ""),
             BottomNavigationBarItem(
                 icon: BottomNavIcon(
                   IconName: "ic_account",
-                  isSelected: false,
+                  isSelected: selectedindex == 3,
                 ),
                 backgroundColor: Colors.transparent,
                 label: ""),

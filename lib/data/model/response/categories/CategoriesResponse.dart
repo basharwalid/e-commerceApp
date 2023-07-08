@@ -1,3 +1,4 @@
+import 'package:ecommerce/domain/model/Category.dart';
 import 'package:ecommerce/domain/model/CategoryResultDto.dart';
 
 import 'paginationEntity.dart';
@@ -38,4 +39,5 @@ class CategoriesResponse {
     }
     return map;
   }
+
 }

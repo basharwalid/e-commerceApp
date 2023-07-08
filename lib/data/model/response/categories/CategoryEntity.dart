@@ -1,4 +1,4 @@
-import 'package:ecommerce/domain/model/CategoryDto.dart';
+import 'package:ecommerce/domain/model/Category.dart';
 
 /// _id : "6439d61c0049ad0b52b90051"
 /// name : "Music"
@@ -41,8 +41,8 @@ class CategoryEntity {
     map['updatedAt'] = updatedAt;
     return map;
   }
-  CategoryDto toCategoryDto(){
-    return CategoryDto(
+  Category toDomain(){
+    return Category(
       id: id,
       name: name,
       slug: slug,

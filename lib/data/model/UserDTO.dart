@@ -1,14 +1,14 @@
 
-import 'package:ecommerce/domain/model/UserDto.dart';
+import 'package:ecommerce/domain/model/User.dart';
 
-class User {
-  User({
+class UserDTO {
+  UserDTO({
       this.name, 
       this.email, 
       this.phone, 
       this.id,});
 
-  User.fromJson(dynamic json) {
+  UserDTO.fromJson(dynamic json) {
     name = json['name'];
     email = json['email'];
     phone = json['phone'];
@@ -27,8 +27,8 @@ class User {
     map['_id'] = id;
     return map;
   }
-  UserDto toUserDTo(){
-    return UserDto(
+  User toUserDTo(){
+    return User(
       name: name,
       email: email,
       phone: phone,

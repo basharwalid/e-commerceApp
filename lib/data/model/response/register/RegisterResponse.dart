@@ -1,6 +1,7 @@
-import 'package:ecommerce/domain/model/AuthResultDto.dart';
+import 'package:ecommerce/data/model/UserDTO.dart';
+import 'package:ecommerce/domain/model/AuthResult.dart';
 
-import '../../User.dart';
+
 import 'ServerErrorEntity.dart';
 class RegisterResponse {
   RegisterResponse({
@@ -8,11 +9,11 @@ class RegisterResponse {
       this.token,});
 
   RegisterResponse.fromJson(dynamic json) {
-    user = json['data'] != null ? User.fromJson(json['data']) : null;
+    user = json['data'] != null ? UserDTO.fromJson(json['data']) : null;
     token = json['token'];
     error =  json['errors'] != null ? ServerErrorEntity.fromJson(json["errors"]):null;
   }
-  User? user;
+  UserDTO? user;
   String? token;
   String? message;
   String? statusMsg;
@@ -33,8 +34,8 @@ class RegisterResponse {
     return (message ?? error?.msg) ?? "";
   }
 
-  AuthResultDto toAuthResultDto(){
-    return AuthResultDto(
+  AuthResult toAuthResultDto(){
+    return AuthResult(
       user: user?.toUserDTo(),
       token: token
     );

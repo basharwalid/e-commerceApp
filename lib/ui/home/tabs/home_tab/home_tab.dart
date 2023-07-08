@@ -1,3 +1,5 @@
+import 'package:ecommerce/Core/DI/di.dart';
+import 'package:ecommerce/domain/usecase/getCategoriesUseCase.dart';
 import 'package:ecommerce/ui/components/GenericErrorWidget.dart';
 import 'package:ecommerce/ui/components/infiniteLoadingWidget.dart';
 import 'package:flutter/material.dart';
@@ -11,7 +13,7 @@ class HomeTab extends StatefulWidget {
 }
 
 class _HomeTabState extends State<HomeTab> {
-  HomeTabViewModel viewModel = HomeTabViewModel();
+  HomeTabViewModel viewModel = HomeTabViewModel(GetCategoriesUseCase(injectCategoryRepo()));
   @override
   void initState() {
     super.initState();

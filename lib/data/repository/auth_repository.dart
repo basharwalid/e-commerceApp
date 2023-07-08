@@ -1,21 +1,21 @@
-import 'package:ecommerce/api/response/Loginresponse/LoginResponse.dart';
-import 'package:ecommerce/api/response/register/RegisterResponse.dart';
+
 import 'package:ecommerce/domain/dataSource/auth_online_datasource.dart';
-import 'package:ecommerce/domain/model/AuthResultDto.dart';
-import '../../domain/repository/auth_repository.dart';
+import 'package:ecommerce/domain/model/AuthResult.dart';
+import 'package:ecommerce/domain/repository/auth_repository.dart';
 
-
-class authRepositoryimpl implements AuthRepository{
+class AuthRepositoryImpl implements AuthRepository{
   AuthOnlineDataSource onlineDataSource;
-  authRepositoryimpl(this.onlineDataSource);
+  AuthRepositoryImpl(this.onlineDataSource);
 
   @override
-  Future<AuthResultDto> Login(String email, String password) {
-    return onlineDataSource.Login(email, password);
+  Future<AuthResult> Login(String email, String password) async{
+    var response = await  onlineDataSource.Login(email, password);
+    return response;
   }
 
   @override
-  Future<AuthResultDto> Register(String name, String email, String password, String repassword, String phone) {
-    return onlineDataSource.Register(name, email, password, repassword, phone);
+  Future<AuthResult> Register(String name, String email, String password, String repassword, String phone) async{
+    var response = await onlineDataSource.Register(name, email, password, repassword, phone);
+    return response;
   }
 }

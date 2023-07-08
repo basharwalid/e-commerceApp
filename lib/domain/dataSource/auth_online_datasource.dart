@@ -1,6 +1,7 @@
-import '../model/AuthResultDto.dart';
+
+import '../model/AuthResult.dart';
 
 abstract class AuthOnlineDataSource{
-  Future<AuthResultDto> Login(String email , String password);
-  Future<AuthResultDto> Register(String name , String email , String password , String repassword , String phone);
+  Future<AuthResult> Login(String email , String password);
+  Future<AuthResult> Register(String name , String email , String password , String repassword , String phone);
 }

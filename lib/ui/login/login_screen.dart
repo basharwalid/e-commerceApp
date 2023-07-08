@@ -1,12 +1,13 @@
-import 'package:ecommerce/api/User.dart';
+import 'package:ecommerce/Core/DI/di.dart';
+import 'package:ecommerce/Core/providers/Auth_provider.dart';
+import 'package:ecommerce/Core/utils/validation%20utils.dart';
+import 'package:ecommerce/domain/usecase/login_usecase.dart';
 import 'package:ecommerce/my_theme.dart';
 
 import 'package:ecommerce/ui/login/login_view_model.dart';
 import 'package:ecommerce/ui/register/register_screen.dart';
 import 'package:flutter/material.dart';
-import 'package:ecommerce/utils/validation utils.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
-import '../../providers/Auth_provider.dart';
 import '../components/Custom_form_field.dart';
 import '../home/home_screen.dart';
 
@@ -15,7 +16,7 @@ class LoginScreen extends StatelessWidget {
   var formkey = GlobalKey<FormState>();
   var Emailcontroller = TextEditingController(text: "basharwalid2002@gmail.com");
   var Passwordcontroller = TextEditingController(text: "123456");
-  var viewModel = LoginViewModel();
+  var viewModel = LoginViewModel(LoginUseCase(injectAuthRepo()));
   @override
   Widget build(BuildContext context) {
     return BlocConsumer<LoginViewModel , LoginViewState>(
@@ -71,7 +72,7 @@ class LoginScreen extends StatelessWidget {
                             if(text==null || text.trim().isEmpty){
                               return 'please Enter email';
                             }
-                            if (!validationUtils.isValidEmail(text))
+                            if (!ValidationUtils.isValidEmail(text))
                             {
                               return "please enter a valid email";
                             }

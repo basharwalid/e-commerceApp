@@ -1,4 +1,5 @@
-import 'package:ecommerce/api/api_manager/ApiManager.dart';
+
+import 'package:ecommerce/data/api/api_manager/ApiManager.dart';
 import 'package:ecommerce/data/dataSource/categories_online_dataSource_impl.dart';
 import 'package:ecommerce/data/repository/categories_repository.dart';
 import 'package:ecommerce/domain/customException/ServerErrorException.dart';
@@ -9,19 +10,13 @@ import 'package:ecommerce/domain/usecase/getCategoriesUseCase.dart';
 import 'package:ecommerce/ui/login/login_view_model.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 
-import '../../../../api/response/register/ServerErrorEntity.dart';
 import '../../../../domain/customException/NewtorkException.dart';
-import '../../../../domain/model/CategoryDto.dart';
+import '../../../../domain/model/Category.dart';
 
 class HomeTabViewModel extends Cubit<HomeTabViewState>{
-  late GetCategoriesUseCase getCategoriesUseCase;
-  HomeTabViewModel():super(InitialState()){
-    ApiManager apiManager = ApiManager();
-    CategoriesOnlineDataSource dataSource = CategoriesOnlineDataSourceImpl(apiManager);
-    CategoriesRepository categoriesRepository = CategoriesRepositoryimpl(dataSource);
-    getCategoriesUseCase = GetCategoriesUseCase(categoriesRepository);
-  }
-  CategoryResultDto? _categoryResult;
+  GetCategoriesUseCase getCategoriesUseCase;
+  HomeTabViewModel(this.getCategoriesUseCase):super(InitialState());
+  CategoryResult? _categoryResult;
   getAllCategories()async{
     emit(LoadingState());
       try{
@@ -43,7 +38,7 @@ class LoadingState extends HomeTabViewState{
   LoadingState({this.LoadingMessage});
 }
 class SuccessState extends HomeTabViewState{
-  List<CategoryDto> categoriesList;
+  List<Category> categoriesList;
   SuccessState(this.categoriesList);
 }
 class FailState extends HomeTabViewState{

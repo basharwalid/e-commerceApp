@@ -1,18 +1,26 @@
 import 'dart:async';
 import 'dart:convert';
 import 'dart:io';
-import 'package:ecommerce/api/interceptor/LoggingInterceptor.dart';
-import 'package:ecommerce/api/request/LoginRequest.dart';
-import 'package:ecommerce/api/request/RegisterRequest.dart';
-import 'package:ecommerce/api/response/Loginresponse/LoginResponse.dart';
-import 'package:ecommerce/api/response/register/RegisterResponse.dart';
+import 'package:ecommerce/data/api/interceptor/LoggingInterceptor.dart';
+import 'package:ecommerce/data/model/request/LoginRequest.dart';
+import 'package:ecommerce/data/model/request/RegisterRequest.dart';
+import 'package:ecommerce/data/model/response/Loginresponse/LoginResponse.dart';
+import 'package:ecommerce/data/model/response/categories/CategoriesResponse.dart';
+import 'package:ecommerce/data/model/response/register/RegisterResponse.dart';
 import 'package:ecommerce/domain/customException/NewtorkException.dart';
 import 'package:ecommerce/domain/customException/ServerErrorException.dart';
 import 'package:http/http.dart' as http;
 import 'package:http_interceptor/http/intercepted_client.dart';
 
-import '../response/categories/CategoriesResponse.dart';
 class ApiManager{
+
+  static ApiManager? _instance;
+  ApiManager._();
+  static getApiManager(){
+    _instance??= ApiManager._();
+    return _instance;
+  }
+
   static const String baseurl = "route-ecommerce.onrender.com";
   http.Client client = InterceptedClient.build(interceptors: [
     LoggingInterceptor()

@@ -1,5 +1,5 @@
+import 'package:ecommerce/Core/providers/Auth_provider.dart';
 import 'package:ecommerce/my_theme.dart';
-import 'package:ecommerce/providers/Auth_provider.dart';
 import 'package:ecommerce/ui/home/home_screen.dart';
 import 'package:ecommerce/ui/login/login_screen.dart';
 import 'package:ecommerce/ui/register/register_screen.dart';
