@@ -1,5 +1,5 @@
 import 'package:ecommerce/ui/home/bottom_nav_icon.dart';
-import 'package:ecommerce/ui/home/tabs/Categories_tab.dart';
+import 'package:ecommerce/ui/home/tabs/CategoryTab/Categories_tab.dart';
 import 'package:ecommerce/ui/home/tabs/home_tab/home_tab.dart';
 import 'package:flutter/material.dart';
 
@@ -94,7 +94,9 @@ class _HomeScreenState extends State<HomeScreen> {
   }
   List<Widget> tabs = [
     HomeTab(),
-    CategoriesTab()
+    CategoriesTab(),
+    CategoriesTab(),
+    CategoriesTab(),
   ];
 }
 
