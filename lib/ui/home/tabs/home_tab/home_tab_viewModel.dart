@@ -4,7 +4,7 @@ import 'package:ecommerce/data/dataSource/categories_online_dataSource_impl.dart
 import 'package:ecommerce/data/repository/categories_repository.dart';
 import 'package:ecommerce/domain/customException/ServerErrorException.dart';
 import 'package:ecommerce/domain/dataSource/categories_online_dataSource.dart';
-import 'package:ecommerce/domain/model/CategoryResultDto.dart';
+import 'package:ecommerce/domain/model/CategoryResult.dart';
 import 'package:ecommerce/domain/repository/Categories_repository.dart';
 import 'package:ecommerce/domain/usecase/getCategoriesUseCase.dart';
 import 'package:ecommerce/ui/login/login_view_model.dart';

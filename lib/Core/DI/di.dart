@@ -30,7 +30,7 @@ CategoriesOnlineDataSource  getCategoryDataSource(ApiManager apiManager){
 }
 
 CategoriesRepository getCategoryRepository(CategoriesOnlineDataSource dataSource){
-  return CategoriesRepositoryimpl(dataSource);
+  return CategoriesRepositoryImpl(dataSource);
 }
 
 CategoriesRepository injectCategoryRepo(){

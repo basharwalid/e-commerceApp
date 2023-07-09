@@ -8,7 +8,7 @@ class BottomNavIcon extends StatelessWidget {
   Widget build(BuildContext context) {
     return isSelected?
     Container(
-      padding: EdgeInsets.all(4),
+      padding: const EdgeInsets.all(4),
       decoration: BoxDecoration(
         color: Colors.white,
         borderRadius: BorderRadius.circular(24)
@@ -18,7 +18,7 @@ class BottomNavIcon extends StatelessWidget {
       ),
 
     ): Container(
-      padding: EdgeInsets.all(4),
+      padding: const EdgeInsets.all(4),
       child: ImageIcon(AssetImage("assets/images/$IconName.png"),
         color: Colors.white,
       ),

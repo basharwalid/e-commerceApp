@@ -116,7 +116,7 @@ class RegisterScreen extends StatelessWidget {
                             if(text==null || text.trim().isEmpty){
                               return 'please Enter Password confirmation';
                             }
-                            if(viewModel.Passwordcontroller.text != text){
+                            if(viewModel.PasswordConfirmcontroller.text != text){
                               return "Password doesn't match";
                             }
                             return null;

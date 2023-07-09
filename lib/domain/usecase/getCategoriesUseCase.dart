@@ -1,4 +1,4 @@
-import 'package:ecommerce/domain/model/CategoryResultDto.dart';
+import 'package:ecommerce/domain/model/CategoryResult.dart';
 import 'package:ecommerce/domain/repository/Categories_repository.dart';
 
 class GetCategoriesUseCase{

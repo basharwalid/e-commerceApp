@@ -33,8 +33,14 @@ class _HomeTabState extends State<HomeTab> {
           if(state is FailState){
             return GenericErrorWidget(state.message??state.exception.toString());
           }
-          if(state is SuccessState){
-            return Text("Succes Loading");
+          if(state is SuccessState) {
+            var categoriesList = state.categoriesList;
+            return ListView.builder(
+                itemBuilder:(_, index) {
+                  return Text(categoriesList.map((element) => element.image).toString());
+                },
+              itemCount: categoriesList.length,
+            );
           }
           return Container();
       },

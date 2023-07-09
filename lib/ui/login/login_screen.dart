@@ -45,19 +45,19 @@ class LoginScreen extends StatelessWidget {
         return Scaffold(
           body: Container(
             padding: const EdgeInsets.all(12.0),
-            child: Column(
-              crossAxisAlignment: CrossAxisAlignment.stretch,
-              children: [
-                const SizedBox(height: 80,),
-                Image.asset("assets/images/route_logo_big.png"),
-                Text("Welcome Back to Route" ,
-                  style: Theme.of(context).textTheme.labelLarge,
-                ),
-                Text("Please sign in with your mail",
-                  style: Theme.of(context).textTheme.labelSmall,
-                ),
-                SingleChildScrollView(
-                  child: Form(
+            child: SingleChildScrollView(
+              child: Column(
+                crossAxisAlignment: CrossAxisAlignment.stretch,
+                children: [
+                  const SizedBox(height: 80,),
+                  Image.asset("assets/images/route_logo_big.png"),
+                  Text("Welcome Back to Route" ,
+                    style: Theme.of(context).textTheme.labelLarge,
+                  ),
+                  Text("Please sign in with your mail",
+                    style: Theme.of(context).textTheme.labelSmall,
+                  ),
+                  Form(
                     key: formkey,
                     child: Column(
                       crossAxisAlignment: CrossAxisAlignment.stretch,
@@ -84,9 +84,6 @@ class LoginScreen extends StatelessWidget {
                           validator: (text){
                             if(text==null || text.trim().isEmpty){
                               return 'please Enter Password';
-                            }
-                            if(text.length>6){
-                              return 'Password should be at least 6 chars';
                             }
                             return null;
                           },
@@ -129,8 +126,8 @@ class LoginScreen extends StatelessWidget {
                       ],
                     ),
                   ),
-                ),
-              ],
+                ],
+              ),
             ),
           ),
         );

@@ -1,6 +1,6 @@
 import 'package:ecommerce/data/api/api_manager/ApiManager.dart';
 import 'package:ecommerce/domain/dataSource/categories_online_dataSource.dart';
-import 'package:ecommerce/domain/model/CategoryResultDto.dart';
+import 'package:ecommerce/domain/model/CategoryResult.dart';
 
 class CategoriesOnlineDataSourceImpl implements CategoriesOnlineDataSource{
   ApiManager apiManager;

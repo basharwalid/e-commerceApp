@@ -13,9 +13,9 @@ import '../../domain/usecase/register_usecase.dart';
 
 class RegisterViewModel extends Cubit<RegisterViewState>{
   var formkey = GlobalKey<FormState>();
-  var namecontroller = TextEditingController(text: "bashar walid");
-  var Emailcontroller = TextEditingController(text: "basharwalid2002@gmail.com");
-  var mobilecontroller = TextEditingController(text: "01016309078");
+  var namecontroller = TextEditingController(text: "Nardin wagih");
+  var Emailcontroller = TextEditingController(text: "nono_wme@yahoo.com");
+  var mobilecontroller = TextEditingController(text: "01283195130");
   var Passwordcontroller = TextEditingController(text: "123456");
   var PasswordConfirmcontroller = TextEditingController(text: "123456");
   RegisterUseCase registerUseCase;

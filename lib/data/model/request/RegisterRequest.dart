@@ -31,7 +31,7 @@ class RegisterRequest {
     map['name'] = name;
     map['email'] = email;
     map['password'] = password;
-    map['repassword'] = repassword;
+    map['rePassword'] = repassword;
     map['phone'] = phone;
     return map;
   }

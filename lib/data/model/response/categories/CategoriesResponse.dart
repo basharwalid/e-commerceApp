@@ -1,5 +1,5 @@
 import 'package:ecommerce/domain/model/Category.dart';
-import 'package:ecommerce/domain/model/CategoryResultDto.dart';
+import 'package:ecommerce/domain/model/CategoryResult.dart';
 
 import 'paginationEntity.dart';
 import 'CategoryEntity.dart';

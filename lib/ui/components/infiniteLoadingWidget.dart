@@ -12,6 +12,6 @@ class InfiniteLoadingWidget extends StatelessWidget {
           Text(LoadingMessage)
         ],
       ),
-    );;
+    );
   }
 }

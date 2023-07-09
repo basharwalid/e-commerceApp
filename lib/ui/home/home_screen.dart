@@ -1,4 +1,5 @@
 import 'package:ecommerce/ui/home/bottom_nav_icon.dart';
+import 'package:ecommerce/ui/home/tabs/Categories_tab.dart';
 import 'package:ecommerce/ui/home/tabs/home_tab/home_tab.dart';
 import 'package:flutter/material.dart';
 
@@ -10,7 +11,7 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int selectedindex = 0;
+  int selectedIndex = 0;
 
   @override
   Widget build(BuildContext context) {
@@ -27,7 +28,9 @@ class _HomeScreenState extends State<HomeScreen> {
                       fillColor: Theme.of(context).primaryColor,
                       prefixIcon: const Icon(Icons.search),
                       enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16))),
+                          borderRadius: BorderRadius.circular(16)
+                      )
+                  ),
                 ),
               ),
               ImageIcon(
@@ -41,53 +44,57 @@ class _HomeScreenState extends State<HomeScreen> {
       bottomNavigationBar: Container(
         decoration:  BoxDecoration(
             color: Theme.of(context).primaryColor,
-          borderRadius: BorderRadius.only(
+          borderRadius: const BorderRadius.only(
             topLeft: Radius.circular(16),
             topRight: Radius.circular(16),
           )
         ),
         child: BottomNavigationBar(
-          currentIndex: selectedindex,
+          currentIndex: selectedIndex,
           type:BottomNavigationBarType.fixed,
           onTap: (index) {
             setState(() {
-              selectedindex = index;
+              selectedIndex = index;
             });
           },
           items: [
             BottomNavigationBarItem(
                 icon: BottomNavIcon(
                   IconName: "ic_home",
-                  isSelected: selectedindex == 0,
+                  isSelected: selectedIndex == 0,
                 ),
                 backgroundColor: Colors.transparent,
                 label: ""),
             BottomNavigationBarItem(
                 icon: BottomNavIcon(
                   IconName: "ic_category",
-                  isSelected: selectedindex == 1,
+                  isSelected: selectedIndex == 1,
                 ),
                 backgroundColor: Colors.transparent,
                 label: ""),
             BottomNavigationBarItem(
                 icon: BottomNavIcon(
                   IconName: "ic_favorite",
-                  isSelected: selectedindex == 2,
+                  isSelected: selectedIndex == 2,
                 ),
                 backgroundColor: Colors.transparent,
                 label: ""),
             BottomNavigationBarItem(
                 icon: BottomNavIcon(
                   IconName: "ic_account",
-                  isSelected: selectedindex == 3,
+                  isSelected: selectedIndex == 3,
                 ),
                 backgroundColor: Colors.transparent,
                 label: ""),
           ],
         ),
       ),
-      body: HomeTab(),
+      body: tabs[selectedIndex],
     );
   }
+  List<Widget> tabs = [
+    HomeTab(),
+    CategoriesTab()
+  ];
 }
 
