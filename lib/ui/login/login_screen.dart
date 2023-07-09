@@ -2,7 +2,7 @@ import 'package:ecommerce/Core/DI/di.dart';
 import 'package:ecommerce/Core/providers/Auth_provider.dart';
 import 'package:ecommerce/Core/utils/validation%20utils.dart';
 import 'package:ecommerce/domain/usecase/login_usecase.dart';
-import 'package:ecommerce/my_theme.dart';
+import 'package:ecommerce/Core/Theme/my_theme.dart';
 
 import 'package:ecommerce/ui/login/login_view_model.dart';
 import 'package:ecommerce/ui/register/register_screen.dart';
