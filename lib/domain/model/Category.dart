@@ -5,7 +5,6 @@ class Category {
     this.slug,
     this.image,
   });
-
   String? id;
   String? name;
   String? slug;
