@@ -12,32 +12,34 @@ class HomeScreen extends StatefulWidget {
 
 class _HomeScreenState extends State<HomeScreen> {
   int selectedIndex = 0;
-
   @override
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
         title: Padding(
           padding: const EdgeInsets.symmetric(vertical: 12),
-          child: Row(
-            children: [
-              Expanded(
-                child: TextField(
-                  decoration: InputDecoration(
-                      filled: true,
-                      fillColor: Theme.of(context).primaryColor,
-                      prefixIcon: const Icon(Icons.search),
-                      enabledBorder: OutlineInputBorder(
-                          borderRadius: BorderRadius.circular(16)
-                      )
+          child: Padding(
+            padding: const EdgeInsets.symmetric(vertical: 12 , horizontal: 12),
+            child: Row(
+              children: [
+                Expanded(
+                  child: TextField(
+                    decoration: InputDecoration(
+                        filled: true,
+                        fillColor: Theme.of(context).primaryColor,
+                        prefixIcon: const Icon(Icons.search),
+                        enabledBorder: OutlineInputBorder(
+                            borderRadius: BorderRadius.circular(16)
+                        )
+                    ),
                   ),
                 ),
-              ),
-              ImageIcon(
-                const AssetImage("assets/images/ic_cart.png"),
-                color: Theme.of(context).primaryColor,
-              )
-            ],
+                ImageIcon(
+                  const AssetImage("assets/images/ic_cart.png"),
+                  color: Theme.of(context).primaryColor,
+                )
+              ],
+            ),
           ),
         ),
       ),
