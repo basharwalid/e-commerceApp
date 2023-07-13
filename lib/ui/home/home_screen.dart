@@ -1,3 +1,4 @@
+import 'package:ecommerce/Core/Theme/my_theme.dart';
 import 'package:ecommerce/ui/home/bottom_nav_icon.dart';
 import 'package:ecommerce/ui/home/tabs/CategoryTab/Categories_tab.dart';
 import 'package:ecommerce/ui/home/tabs/home_tab/home_tab.dart';
@@ -23,20 +24,22 @@ class _HomeScreenState extends State<HomeScreen> {
             child: Row(
               children: [
                 Expanded(
-                  child: TextField(
-                    decoration: InputDecoration(
-                        filled: true,
-                        fillColor: Theme.of(context).primaryColor,
-                        prefixIcon: const Icon(Icons.search),
-                        enabledBorder: OutlineInputBorder(
-                            borderRadius: BorderRadius.circular(16)
-                        )
+                  child: Padding(
+                    padding: const EdgeInsets.all(5.0),
+                    child: SearchBar(
+                      backgroundColor: MaterialStateProperty.all(MyTheme.primarycolor),
+                      shape: MaterialStateProperty.all(RoundedRectangleBorder(
+                        borderRadius: BorderRadius.circular(20)
+                      )),
                     ),
-                  ),
+                  )
                 ),
-                ImageIcon(
-                  const AssetImage("assets/images/ic_cart.png"),
-                  color: Theme.of(context).primaryColor,
+                Padding(
+                  padding: const EdgeInsets.all(10.0),
+                  child: ImageIcon(
+                    const AssetImage("assets/images/ic_cart.png"),
+                    color: Theme.of(context).primaryColor,
+                  ),
                 )
               ],
             ),

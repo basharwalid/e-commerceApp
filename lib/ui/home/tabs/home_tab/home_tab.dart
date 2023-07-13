@@ -43,14 +43,17 @@ class _HomeTabState extends State<HomeTab> {
               padding: const EdgeInsets.all(12.0),
               child: Column(
                 children: [
-                  ImageSlideshow(
-                    width: double.infinity,
-                      height: 250,
-                      isLoop: true,
-                      children: state.categoriesList
-                          .map((e) => Image.network(e.image! , fit: BoxFit.cover,))
-                          .toList()
+                  InkWell(
+                    onTap: (){},
+                    child: ImageSlideshow(
+                      width: double.infinity,
+                        height: 250,
+                        isLoop: true,
+                        children: state.categoriesList
+                            .map((e) => Image.network(e.image! , fit: BoxFit.cover,))
+                            .toList()
 
+                    ),
                   ),
                   CategoryListWidget(state.categoriesList)
                 ],
